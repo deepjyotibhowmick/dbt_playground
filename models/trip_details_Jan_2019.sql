@@ -12,3 +12,4 @@ INNER JOIN ZONE Z1
 ON T.DOLocationID=Z1.LocationID
 INNER JOIN ZONE Z2  
 ON T.PULocationID=Z2.LocationID 
+where T.total_amount>50

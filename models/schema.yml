@@ -1,0 +1,44 @@
+version: 2
+
+models:
+  - name: trip_details_Jan_2019
+    description: This table has trip details info
+
+    columns:
+      - name: VendorID
+        description: This is a unique identifier for a vendor
+        tests:
+          - unique
+          - not_null
+
+      - name: tpep_pickup_datetime
+        description: pick up datetime.
+
+      - name: tpep_dropoff_datetime
+        description: drop datetime.
+
+      - name: TRAVEL_TIME_MINUTES
+        description: total travel time in minutes
+
+      - name: passenger_count
+        description: total passengers in the trip
+
+      - name: trip_distance
+        description: total trip distances
+
+      - name: RateCode
+        description: RateCode info
+
+      - name: total_amount
+        description: total fare
+        tests:
+          - unique
+          - not_null
+          
+      - name: PICKUP_LOCATION
+        description: PICKUP LOCATION info
+        
+      - name: DROP_LOCATION
+        description: DROP LOCATION info
+
+ 

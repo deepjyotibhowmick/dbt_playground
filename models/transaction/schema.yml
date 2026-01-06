@@ -8,7 +8,6 @@ models:
       - name: VendorID
         description: This is a unique identifier for a vendor
         tests:
-          - unique
           - not_null
 
       - name: tpep_pickup_datetime
@@ -28,17 +27,22 @@ models:
 
       - name: RateCode
         description: RateCode info
+        tests:
+          - not_null
 
       - name: total_amount
         description: total fare
         tests:
-          - unique
           - not_null
           
       - name: PICKUP_LOCATION
         description: PICKUP LOCATION info
+        tests:
+          - not_null
         
       - name: DROP_LOCATION
         description: DROP LOCATION info
+        tests:
+          - not_null
 
  

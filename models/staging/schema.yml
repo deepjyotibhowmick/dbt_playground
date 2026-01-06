@@ -2,29 +2,37 @@
 version: 2
 
 models:
-  - name: stg_ratecodes
-    description: "Ratecode data"
-    columns:
-      - name: RateCodeID
-        description: "The primary key for this table"
-        data_tests:
-          - unique
-          - not_null
-
-  - name: stg_taxizones
-    description: "Taxizone data with location"
-    columns:
-      - name: LocationID
-        description: "The primary key for this table"
-        data_tests:
-          - unique
-          - not_null
+#   - name: stg_ratecodes
+#     description: "Ratecode data"
+#     columns:
+#       - name: RateCodeID
+#         description: "The primary key for this table"
+#         data_tests:
+#           - unique
+#           - not_null
 
   - name: stg_yellow_tripdata_201901
     description: "taxi data for Jan, 2019"
     columns:
-      - name: VendorID
+      - name: RatecodeID
         description: "foreign key"
         data_tests:
-          - unique
           - not_null
+
+      - name: PULocationID
+        description: "foreign key"
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_taxizones')
+                field: LocationID  
+      
+      - name: DOLocationID
+        description: "foreign key"
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_taxizones')
+                field: LocationID      

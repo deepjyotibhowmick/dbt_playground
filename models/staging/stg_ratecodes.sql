@@ -1,3 +1,2 @@
-with src as (SELECT RateCodeID,RateCode,IsApproved,current_timestamp() as UTS
- FROM {{ ref('RateCodes')}})
-select * from src
+SELECT RateCodeID,RateCode,IsApproved,current_timestamp() as UTS
+ FROM {{ source('dbt_learning', 'T_RateCodes') }}

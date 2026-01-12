@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: dbt_learning           # A nickname for the source
+    database: deeplearningproject-472318    # Optional: your GCP project ID
+    schema: dbt_learning    # The BigQuery dataset where data lives
+    tables:
+      - name: T_RateCodes         # The actual table name in BigQuery
+      - name: T_TaxiZones
+      - name: T_yellow_tripdata_2019_01
+        description: "Raw data"

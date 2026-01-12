@@ -9,3 +9,12 @@ sources:
       - name: T_TaxiZones
       - name: T_yellow_tripdata_2019_01
         description: "Raw data"
+        # freshness:
+        #   warn_after:
+        #     count: 4
+        #     period: minute
+        #   error_after:
+        #     count: 72
+        #     period: hour 
+
+        # loaded_at_field: UTS       

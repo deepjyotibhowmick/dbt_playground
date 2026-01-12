@@ -1,3 +1,2 @@
-with src as (SELECT LocationID,Borough,Zone,service_zone,current_timestamp() as UTS
- FROM {{ ref('TaxiZones')}})
-select * from src
+SELECT LocationID,Borough,Zone,service_zone,current_timestamp() as UTS
+ FROM {{ source('dbt_learning', 'T_TaxiZones') }} 

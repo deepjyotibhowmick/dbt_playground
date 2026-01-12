@@ -3,8 +3,12 @@ Welcome to your new dbt project!
 ### Using the starter project
 
 Try running the following commands:
-- dbt run
+- dbt debug
 - dbt test
+- dbt run
+- dbt build
+- dbt docs generate
+- dbt docs serve
 
 
 ### Resources:

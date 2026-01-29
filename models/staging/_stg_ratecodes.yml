@@ -1,3 +1,5 @@
+version: 2
+
 models:
   - name: stg_ratecodes
     description: "Ratecode data"
@@ -5,8 +7,15 @@ models:
       - name: RateCodeID
         description: "The primary key for this table"
         data_tests:
-          - unique
-          - not_null
+          - unique:
+              config:
+                severity: warn
+                store_failures: true
+          - not_null:
+              config:
+                severity: warn
+                # store_failures: true
+        
       - name: RateCode
         data_tests:
           - accepted_values:

@@ -1,6 +1,9 @@
 WITH TRIP AS (SELECT * FROM {{ref('stg_yellow_tripdata_201901')}})
 
-,RATE AS (SELECT RateCodeID,RateCode  FROM {{ref('stg_ratecodes')}})
+,RATE AS (SELECT RateCodeID,RateCode FROM 
+            (SELECT RateCodeID,RateCode,ROW_NUMBER() OVER (PARTITION BY RateCodeID,RateCode) AS UNQ  
+            FROM {{ref('stg_ratecodes')}} ) 
+         WHERE UNQ=1)
 
 ,ZONE AS (SELECT LocationID,Zone FROM {{ref('stg_taxizones')}})
 
